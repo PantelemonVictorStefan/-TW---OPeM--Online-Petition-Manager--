@@ -1,0 +1,239 @@
+body {
+    width: 100%;
+    height: 100%;
+    padding-top: 40px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    font-size: 28px;
+    color: #76323F;
+    background-color: white;
+
+}
+
+.navbar {
+
+    overflow: hidden;
+    background-color: #026670;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.navbar a {
+
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 27px;
+}
+
+.navbar a:hover {
+
+    background-color: #ddd;
+    color: #76323F;
+}
+
+.navbar a.active {
+
+    background-color: #FCE181;
+    color: white;
+}
+
+.navbar .icon {
+    display: none;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky + .main {
+    padding-top: 60px;
+}
+
+.main {
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+.box {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 0 20px 0;
+    font-size: 150%;
+}
+
+.wrapper {
+    margin-right: 10%;
+    margin-left: 10%;
+    /*width: 400px;*/
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    background-color: #fff;
+    color: #444;
+
+}
+
+.section1 {
+    grid-row: 1 / 2;
+}
+
+h2#titlu {
+    margin-right: 15%;
+    margin-left: 20%;
+}
+
+.section2 {
+    grid-row: 3 / 4;
+}
+
+.section3 {
+    grid-row: 5 / 6;
+}
+
+.ad1 {
+    grid-row: 2 / 3;
+}
+
+.ad2 {
+    grid-row: 4 / 5;
+}
+
+@supports (display: grid) {
+    .wrapper > * {
+        width: auto;
+        margin: 0;
+    }
+}
+
+.campuri {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+input#titlu_petitie {
+    width: 100%;
+    height: 50px;
+    max-height: 100px;
+    max-width: 100%;
+    min-height: 60%;
+    min-width: 30%;
+    font-size: 30px;
+}
+
+textarea#descriere_petiteie {
+    width: 100%;
+    height: 200px;
+    max-height: 400px;
+    max-width: 100%;
+    min-height: 60%;
+    min-width: 100%;
+    font-size: 30px;
+}
+
+input#taguri_petitie {
+    width: 100%;
+    height: 50px;
+    max-height: 100%;
+    max-width: 100%;
+    min-height: 60%;
+    min-width: 30%;
+    font-size: 30px;
+}
+
+input#nume_autor {
+
+    width: 100%;
+    height: 50px;
+    max-height: 100%;
+    max-width: 100%;
+    min-height: 60%;
+    min-width: 30%;
+    font-size: 30px;
+
+}
+
+input#email_petitie {
+    width: 100%;
+    height: 50px;
+    max-height: 100%;
+    max-width: 100%;
+    min-height: 60%;
+    min-width: 30%;
+    font-size: 30px;
+
+}
+
+select#obiectiv {
+    font-size: 30px;
+}
+
+#subit_buton {
+    width: 100%;
+    padding: 10px 15px 11px;
+    font-size: 25px;
+    background-color: #76323F;
+    font-weight: bold;
+
+    color: #ffffff;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 1px solid #57D6C7;
+    cursor: pointer;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+.about_us {
+    text-align: center;
+    display: inline;
+    color: #026670;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+p#about_main {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+p#email_about {
+    text-align: center;
+
+}
+
+p#autori {
+    text-align: center;
+    /*margin-right: 5%;*/
+}
+
+@media screen and (max-width: 700px) {
+    h2#titlu {
+        margin-right: 10px;
+        margin-left: 5px;
+    }
+
+    div.campuri {
+        margin-left: 5px;
+        margin-right: 10px;
+    }
+
+    #subit_buton {
+        font-size: 15px;
+    }
+
+}
+
