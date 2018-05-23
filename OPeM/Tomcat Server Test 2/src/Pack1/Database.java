@@ -60,11 +60,11 @@ public class Database {
 		try {
 			stmt = connection.createStatement();
 		
-	        ResultSet rs=stmt.executeQuery("select * from petitii");
+	        ResultSet rs=stmt.executeQuery("select * from petitii order by (expires_at-sysdate) asc");
 	        while(rs.next())
 	        {
 	        	//System.out.println(rs.getInt(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getInt(5)+" "+rs.getInt(6)+" "+rs.getString(7)+" "+rs.getString(8)+" "+rs.getString(9)+" "+rs.getString(11));
-	        	petitions.add(new Petition(rs.getString(2),rs.getString(3),rs.getString(4),rs.getLong(5),rs.getLong(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(11)));
+	        	petitions.add(new Petition(rs.getLong(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getLong(5),rs.getLong(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(11)));
 	        }
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

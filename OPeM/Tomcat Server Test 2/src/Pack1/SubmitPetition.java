@@ -36,9 +36,9 @@ public class SubmitPetition extends HttpServlet {
 		String tags=request.getParameterValues("taguri_petitie")[0];
 		String name=request.getParameterValues("firstname")[0];
 		String email=request.getParameterValues("email")[0];
-		//String exp=request.get
+		String exp=request.getParameterValues("termenLimita")[0];
 		
-			//System.out.println(category+" "+title+" "+description+" "+target+" "+tags+" "+name+" "+email);
+			//System.out.println(category+" "+title+" "+description+" "+target+" "+tags+" "+name+" "+email+" "+exp);
 			long trg=Long.parseLong(target);
 			
 			
@@ -50,7 +50,7 @@ public class SubmitPetition extends HttpServlet {
 			case "Societate": c=3; break;
 			case "Other": c=4; break;
 			}*/
-			Petition p=new Petition(category,title,description,trg,0,tags,name,email,"21.05.2018");
+			Petition p=new Petition(category,title,description,trg,0,tags,name,email,exp);
 			//p.tags2=request.getParameterValues("taguri_petitie")[0];
 			//p.getTags();
 			//System.out.println(category+" "+p.category);

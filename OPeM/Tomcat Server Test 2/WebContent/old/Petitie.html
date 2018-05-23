@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="navbar" id="myNavbar">
-    <a href="index.jsp" style="margin-left: 20%">Acasa</a>
+    <a href="PaginaPrincipala.html" style="margin-left: 20%">Acasa</a>
     <a href="Exploreaza.html">Exploreaza</a>
 
 </div>
@@ -18,18 +18,19 @@
     <hr>
     <br>
     <div class="campuri">
-        <form action="SubmitPetition">
+         <form action="SubmitPetition">
             Tipul petitiei<br>
             <hr>
-            <input type="radio" name="type_of_petition" value="Politica" checked> Politica<br>
-            <input type="radio" name="type_of_petition" value="Sport"> Sport<br>
-            <input type="radio" name="type_of_petition" value="Societate"> Societate<br>
-            <input type="radio" name="type_of_petition" value="Other"> Other<br>
+            <input type="radio" name="type_of_petition" value="1" checked> Politica<br>
+            <input type="radio" name="type_of_petition" value="2"> Sport<br>
+            <input type="radio" name="type_of_petition" value="3"> Societate<br>
+            <input type="radio" name="type_of_petition" value="4"> Other<br>
+        
+        <hr>
+        <br>
 
-            <hr>
-            <br>
 
-
+       
             Titlu petitiei:<br>
             <input name="textarea" id="titlu_petitie" pattern=".{6,}" placeholder=" "
                    title="Introduce in titlu de cel putin sase litere" required>
@@ -50,11 +51,6 @@
             </select>
             <br>
             <hr>
-            <p> Termen limita :&nbsp;
-                <input name="termenLimita" type="date" id="dt" max="2020-04-05" style="font-size: 2rem"/>
-            </p>
-            <hr>
-            <br>
             Tagurile petitie:<br>
             <input type="text" id="taguri_petitie" name="taguri_petitie"
                    placeholder="exemplu: #nume_tag1, #nume_tag2 "/>
@@ -78,16 +74,10 @@
 </div>
 <hr>
 <div class="about_us">
-    <h3 id="about_text">About us</h3>
-    <p id="about_main">
-    <p id="email_about"> Email: depunepetitie@yahoo.com</p>
-    <p id="autori">Autori:<br> Pantelimon Victor & Bocicu Samuel<br>Copyright 2018</p>
+    <h3 id="about_text" >About us</h3>
+    <p id="about_main"><p id="email_about"> Email: depunepetitie@yahoo.com</p><p id="autori">Autori:<br> Pantelimon Victor & Bocicu Samuel<br>Copyright 2018</p>
 
 
 </div>
-
 </body>
 </html>
-<script>
-    document.getElementById('dt').min = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
-</script>

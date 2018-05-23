@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Petition {
 
-	
+	public long id;
 	public String title;
 	public String description;
 	public String category;
@@ -18,6 +18,20 @@ public class Petition {
 	
 	public Petition(String cat,String titl,String desc, long trg,long v,String tgs,String nm,String eml,String expiration)
 	{
+		category=cat;
+		title=titl;
+		description=desc;
+		votes=v;
+		target=trg;
+		name=nm;
+		email=eml;
+		tags2=tgs;
+		expDate=expiration.substring(0,10);
+	}
+	
+	public Petition(long id,String cat,String titl,String desc, long trg,long v,String tgs,String nm,String eml,String expiration)
+	{
+		this.id=id;
 		category=cat;
 		title=titl;
 		description=desc;
