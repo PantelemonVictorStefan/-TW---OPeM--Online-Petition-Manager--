@@ -22,7 +22,7 @@
 
 
 <div class="navbar" id="myNavbar">
-    <a href="PaginaPrincipala.html" class="active">Acasa</a>
+    <a href="index.jsp" class="active">Acasa</a>
     <a href="Exploreaza.html">Exploreaza</a>
     <a onclick="myFunctionStiri()" >Noutati</a>
     <a onclick="myFunctionContact()" >Contact</a>
@@ -114,11 +114,13 @@
         	out.println("<header class=\"header\">"+p.get(i).category +"</header>");
         	out.println("<aside class=\"sidebar\">"+p.get(i).votes+"/"+p.get(i).target+ "voturi</aside>");
         	out.println("<article class=\"content\">");
-        	out.println("<h1>"+p.get(i).title +"</h1>");
+        	//out.println("<h1>"+p.get(i).title +"</h1>");
+        	out.println("<a href=\"petitie.jsp?index="+p.get(i).id+"\">"+p.get(i).title +"</a>");
         	out.println("<p>"+p.get(i).description +"</p>");
         	out.println("</article>");
         	out.println("<footer class=\"footer\">Termen limita: "+p.get(i).expDate+"</footer>");
         	out.println("</div>\n</div>\n<br>");
+        	//out.println("<a href=\"petitie.jsp\">"+p.get(i).title +"</a>");
         	
         	
         }

@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
 
 public class Database {
@@ -35,19 +36,26 @@ public class Database {
     	    	
     }
 	
-	public static void add(Petition p) 
+	public static long add(Petition p) 
 	{
 		isConnection();
 		
 		try {
-			CallableStatement c=connection.prepareCall("{call add_petitie('"+p.category+"','"+p.title+"','"+p.description +"',"+p.target+",'"+p.tags2+"','"+p.name+"','"+p.email+"','"+p.expDate+"')}");
+			CallableStatement c=connection.prepareCall("{call add_petitie('"+p.category+"','"+p.title+"','"+p.description +"',"+p.target+",'"+p.tags2+"','"+p.name+"','"+p.email+"','"+p.expDate+"',"+"?"+")}");
+			
+			
+			c.registerOutParameter(1, Types.INTEGER);
 			c.executeUpdate();
+			
 			connection.commit();
+			return c.getLong(1);
 			//Database.commit();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		return (Long) null;
 		
 		//petitions.add(p);
 	}
@@ -74,5 +82,28 @@ public class Database {
 		//for(int i=0;i<petitions.size();i++)
 			//System.out.println(petitions.get(i).description);
 		//return null;
+	}
+	
+	public static Petition getPetitionById(long id)
+	{
+		Petition p=null;
+		isConnection();
+		Statement stmt;
+		try {
+			stmt = connection.createStatement();
+		
+	        ResultSet rs=stmt.executeQuery("select * from petitii where id="+id);
+	        if(rs.next())
+	        {
+	        	//System.out.println("Debug");
+	        	//System.out.println(rs.getInt(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getInt(5)+" "+rs.getInt(6)+" "+rs.getString(7)+" "+rs.getString(8)+" "+rs.getString(9)+" "+rs.getString(11));
+	        	p=new Petition(rs.getLong(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getLong(5),rs.getLong(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(11));
+	        }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return p;
 	}
 }
