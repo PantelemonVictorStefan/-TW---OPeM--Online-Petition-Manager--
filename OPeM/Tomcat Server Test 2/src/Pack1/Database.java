@@ -106,4 +106,25 @@ public class Database {
 		
 		return p;
 	}
+	
+	public static ArrayList<Petition> getByCategory(String category)
+	{
+		ArrayList<Petition> petitions=new ArrayList<Petition>();
+		isConnection();
+		Statement stmt;
+		try {
+			stmt = connection.createStatement();
+		
+	        ResultSet rs=stmt.executeQuery("select * from petitii where category='"+category+"' order by title asc");
+	        while(rs.next())
+	        {
+	        	//System.out.println(rs.getInt(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getInt(5)+" "+rs.getInt(6)+" "+rs.getString(7)+" "+rs.getString(8)+" "+rs.getString(9)+" "+rs.getString(11));
+	        	petitions.add(new Petition(rs.getLong(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getLong(5),rs.getLong(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(11)));
+	        }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return petitions;
+	}
 }

@@ -13,7 +13,7 @@
 <body>
 <div class="navbar" id="myNavbar">
     <a href="index.jsp" style="margin-left: 20%">Acasa</a>
-    <a href="Exploreaza.html">Exploreaza</a>
+    <a href="exploreaza.jsp">Exploreaza</a>
 
 </div>
 <div id="main">

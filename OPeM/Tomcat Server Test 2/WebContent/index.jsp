@@ -23,7 +23,7 @@
 
 <div class="navbar" id="myNavbar">
     <a href="index.jsp" class="active">Acasa</a>
-    <a href="Exploreaza.html">Exploreaza</a>
+    <a href="exploreaza.jsp">Exploreaza</a>
     <a onclick="myFunctionStiri()" >Noutati</a>
     <a onclick="myFunctionContact()" >Contact</a>
     <a id="Library" onclick="myFunctionSearch()"></a>
