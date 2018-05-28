@@ -16,6 +16,85 @@ end if;
 p_id:=v_id;
 end add_petitie;
 /
+create or replace package apex_mail_p
+is
+   g_smtp_host      varchar2 (256)     := 'localhost';
+   g_smtp_port      pls_integer        := 1925;
+   g_smtp_domain    varchar2 (256)     := 'gmail.com';
+   g_mailer_id constant varchar2 (256) := 'Mailer by Oracle UTL_SMTP';
+   -- send mail using UTL_SMTP
+   procedure mail (
+      p_sender in varchar2
+    , p_recipient in varchar2
+    , p_subject in varchar2
+    , p_message in varchar2
+   );
+end;
+/
+create or replace package body apex_mail_p
+is
+   -- Write a MIME header
+   procedure write_mime_header (
+      p_conn in out nocopy utl_smtp.connection
+    , p_name in varchar2
+    , p_value in varchar2
+   )
+   is
+   begin
+      utl_smtp.write_data ( p_conn
+                          , p_name || ': ' || p_value || utl_tcp.crlf
+      );
+   end;
+   procedure mail (
+      p_sender in varchar2
+    , p_recipient in varchar2
+    , p_subject in varchar2
+    , p_message in varchar2
+   )
+   is
+      l_conn           utl_smtp.connection;
+      nls_charset    varchar2(255);
+   begin
+      -- get characterset
+      select value
+      into   nls_charset
+      from   nls_database_parameters
+      where  parameter = 'NLS_CHARACTERSET';
+      -- establish connection and autheticate
+      l_conn   := utl_smtp.open_connection (g_smtp_host, g_smtp_port);
+      utl_smtp.ehlo(l_conn, g_smtp_domain);  
+      utl_smtp.command(l_conn, 'auth login');
+      utl_smtp.command(l_conn,utl_encode.text_encode('email@email.email', nls_charset, 1));
+      utl_smtp.command(l_conn, utl_encode.text_encode('parola', nls_charset, 1));
+      -- set from/recipient
+      utl_smtp.command(l_conn, 'MAIL FROM: <'||p_sender||'>');
+      utl_smtp.command(l_conn, 'RCPT TO: <'||p_recipient||'>');
+      -- write mime headers
+      utl_smtp.open_data (l_conn);
+      write_mime_header (l_conn, 'From', p_sender);
+      write_mime_header (l_conn, 'To', p_recipient);
+      write_mime_header (l_conn, 'Subject', p_subject);
+      write_mime_header (l_conn, 'Content-Type', 'text/plain');
+      write_mime_header (l_conn, 'X-Mailer', g_mailer_id);
+      utl_smtp.write_data (l_conn, utl_tcp.crlf);
+      -- write message body
+      utl_smtp.write_data (l_conn, p_message);
+      utl_smtp.close_data (l_conn);
+      -- end connection
+      utl_smtp.quit (l_conn);
+   exception
+      when others
+      then
+         begin
+           utl_smtp.quit(l_conn);
+         exception
+           when others then
+             null;
+         end;
+         raise_application_error(-20000,'Failed to send mail due to the following error: ' || sqlerrm);   
+   end;
+end;
+/
 set serveroutput on;
 create or replace procedure cerere_semnare_petitie(p_id in int,p_email in varchar2,p_out out int)
 as
@@ -32,7 +111,7 @@ then
         select nvl(max(id),0)+1 into v_aux from semnaturi;
         v_code:=FLOOR(DBMS_RANDOM.VALUE(1000,9999));
         insert into semnaturi values(v_aux,p_id,p_email,0,v_code);
-        DBMS_OUTPUT.PUT_LINE(p_email||' '||v_code);
+        apex_mail_p.mail('depunepetitie@gmail.com', p_email, 'Validation code', v_code);
         p_out:=v_aux;
     else
         select confirmed into v_aux from semnaturi where id_petitie=p_id and email=p_email;
@@ -40,7 +119,7 @@ then
         then
             v_code:=FLOOR(DBMS_RANDOM.VALUE(1000,9999));
             update semnaturi set code=v_code where id_petitie=p_id and email=p_email;
-            DBMS_OUTPUT.PUT_LINE(p_email||' '||v_code);
+            apex_mail_p.mail('depunepetitie@gmail.com', p_email, 'Validation code', v_code);
             select id into p_out from semnaturi where id_petitie=p_id and email=p_email;
         else
             p_out:=0;

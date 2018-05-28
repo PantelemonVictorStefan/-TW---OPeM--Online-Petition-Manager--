@@ -115,7 +115,7 @@
         	out.println("<aside class=\"sidebar\">"+p.get(i).votes+"/"+p.get(i).target+ "voturi</aside>");
         	out.println("<article class=\"content\">");
         	//out.println("<h1>"+p.get(i).title +"</h1>");
-        	out.println("<a href=\"petitie.jsp?index="+p.get(i).id+"\">"+p.get(i).title +"</a>");
+        	out.println("<a href=\"petitie.jsp?index="+p.get(i).id+"&mesaj=null\">"+p.get(i).title +"</a>");
         	out.println("<p>"+p.get(i).description +"</p>");
         	out.println("</article>");
         	out.println("<footer class=\"footer\">Termen limita: "+p.get(i).expDate+"</footer>");
@@ -129,6 +129,7 @@
         
         %>
         <br><br>
+        <a href="atom.jsp">Atom</a>
     </div>
 
 <div>

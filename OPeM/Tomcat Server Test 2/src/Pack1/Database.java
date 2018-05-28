@@ -127,4 +127,50 @@ public class Database {
 		}
 		return petitions;
 	}
+	
+	public static int signPetition(long id,String email)
+	{
+		isConnection();
+		
+		try {
+			CallableStatement c=connection.prepareCall("{call cerere_semnare_petitie("+id+",'"+email+"',?)}");
+			
+			
+			c.registerOutParameter(1, Types.INTEGER);
+			c.executeUpdate();
+			
+			connection.commit();
+			return c.getInt(1);
+			//Database.commit();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return -1;
+	}
+	
+	public static int submitCode(long id,int code)
+	{
+		isConnection();
+		
+		try {
+			CallableStatement c=connection.prepareCall("{call semneaza_petitie("+id+",'"+code+"',?)}");
+			
+			
+			c.registerOutParameter(1, Types.INTEGER);
+			c.executeUpdate();
+			
+			connection.commit();
+			return c.getInt(1);
+			//Database.commit();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return -1;
+	}
+	
+	
 }

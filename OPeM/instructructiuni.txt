@@ -1,0 +1,69 @@
+Verificarea prin email e putin mai complicata
+este nevoie de Stunnel
+
+stunnel trebuie configurat
+		-fisierul stunnel.conf trebuie sa contina doar bucata asta de cod
+
+; Use it for client mode
+client = yes
+
+[ssmtp]
+accept  = 1925
+connect = smtp.gmail.com:465
+
+trebuie pornit serviciul de telnet
+
+Start>>Control Panel>>Programs>>Turn Windows features on or off >> Telnet Client[X] Telnet Server[X]
+
+
+e nevoie de niste drepturi pt utilizatorul bazei de date
+GRANT EXECUTE ON UTL_FILE
+GRANT EXECUTE ON [orice motiv din care plange]
+ trebuie rulata bucata asta de cod de catre dba
+
+-- create acl
+begin
+        dbms_network_acl_admin.create_acl (
+                acl             => 'gmail.xml',
+                description     => 'Normal Access',
+                principal       => 'CONNECT',
+                is_grant        => TRUE,
+                privilege       => 'connect',
+                start_date      => null,
+                end_date        => null
+        );
+end;
+/
+-- add priviliege to acl
+begin
+  dbms_network_acl_admin.add_privilege ( 
+  acl       => 'gmail.xml',
+  principal    => 'WEB',
+  is_grant    => TRUE, 
+  privilege    => 'connect', 
+  start_date    => null, 
+  end_date    => null); 
+end;
+/
+-- assign host, port to acl
+begin
+  dbms_network_acl_admin.assign_acl (
+  acl => 'gmail.xml',
+  host => 'localhost',
+  lower_port => 1925,
+  upper_port => 1925);
+end;
+/
+
+
+
+
+
+
+referinte:
+
+http://monkeyonoracle.blogspot.ro/2009/11/plsql-and-gmail-or-utlsmtp-with-ssl.html
+
+pentru a configura o adresa email:
+https://support.google.com/accounts/answer/6010255?hl=en
+https://accounts.google.com/DisplayUnlockCaptcha

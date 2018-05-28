@@ -70,8 +70,8 @@ public class SubmitPetition extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response,long id) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		System.out.println("In the post"+id);
-		RequestDispatcher myDispatch = request.getRequestDispatcher("petitie.jsp?index="+id);
+		//System.out.println("In the post"+id);
+		RequestDispatcher myDispatch = request.getRequestDispatcher("petitie.jsp?index="+id+"&mesaj=null");
 	    myDispatch.forward(request, response);
 	    //response.sendRedirect("https://www.google.ro/?gws_rd=ssl");
 		
@@ -92,10 +92,14 @@ public class SubmitPetition extends HttpServlet {
 		Calendar.getInstance();
 		if(Integer.parseInt(expiration.substring(0,4))<Calendar.YEAR)
 			return false;
-		if(Integer.parseInt(expiration.substring(5,7))<Calendar.MONTH)
-			return false;
-		if(Integer.parseInt(expiration.substring(8,10))<Calendar.DAY_OF_MONTH)
-			return false;
+		else
+			if(Integer.parseInt(expiration.substring(0,4))==Calendar.YEAR)
+				if(Integer.parseInt(expiration.substring(5,7))<Calendar.MONTH)
+					return false;
+				else
+					if(Integer.parseInt(expiration.substring(5,7))==Calendar.MONTH)
+							if(Integer.parseInt(expiration.substring(8,10))<Calendar.DAY_OF_MONTH)	
+								return false;
 		return true;
 	}
 	

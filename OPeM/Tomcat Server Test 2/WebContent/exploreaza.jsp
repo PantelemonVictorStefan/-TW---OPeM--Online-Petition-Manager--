@@ -38,7 +38,7 @@
     ArrayList<Petition> p=Database.getByCategory("Politica");
     if(p!=null)
     	for(int i=0;i<p.size();i++)
-    	out.println("<li><a href=\"petitie.jsp?index="+p.get(i).id+"\">"+p.get(i).title+"</a></li>");
+    	out.println("<li><a href=\"petitie.jsp?index="+p.get(i).id+"&mesaj=null\">"+p.get(i).title+"</a></li>");
     %>
     </ul>
 
@@ -52,7 +52,7 @@
     ArrayList<Petition> petitiiSport=Database.getByCategory("Sport");
     if(petitiiSport!=null)
     	for(int i=0;i<petitiiSport.size();i++)
-    	out.println("<li><a href=\"petitie.jsp?index="+petitiiSport.get(i).id+"\">"+petitiiSport.get(i).title+"</a></li>");
+    	out.println("<li><a href=\"petitie.jsp?index="+petitiiSport.get(i).id+"&mesaj=null\">"+petitiiSport.get(i).title+"</a></li>");
     %>
     </ul>
 </div>
@@ -65,7 +65,7 @@
     ArrayList<Petition> petitiiSocietate=Database.getByCategory("Societate");
     if(petitiiSocietate!=null)
     	for(int i=0;i<petitiiSocietate.size();i++)
-    	out.println("<li><a href=\"petitie.jsp?index="+petitiiSocietate.get(i).id+"\">"+petitiiSocietate.get(i).title+"</a></li>");
+    	out.println("<li><a href=\"petitie.jsp?index="+petitiiSocietate.get(i).id+"&mesaj=null\">"+petitiiSocietate.get(i).title+"</a></li>");
     %>
     </ul>
 </div>
