@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://localhost:8081/Tomcat_Server_Test_2/example.xml">
+<title>Example Feed</title>
+	<subtitle>A subtitle.</subtitle>
+	<link href="http://localhost:8081/Tomcat_Server_Test_2/example.xml" rel="self" />
+	<link href="http://localhost:8081/Tomcat_Server_Test_2" />
+	<id>urn:uuid:60a76c80-d399-11d9-b91C-0003939e0af6</id>
+	<updated>2018-05-28T18:30:02Z</updated>
+	
+<petition>
+<category>Politica</category>
+<votes>0</votes>
+<target>1000000</target>
+<id>2</id>
+<title>Nu mai vrem talhari!</title>
+<description>Scoteti-o din platou ca o calc in picioare!</description>
+<expiration_date>2018-05-21</expiration_date>
+</petition>
+<petition>
+<category>Societate</category>
+<votes>0</votes>
+<target>1000</target>
+<id>5</id>
+<title>Curatati gunoiul de pe Stefan</title>
+<description>Ba, cine o adus mormanu ala de fier vechi si lo pus pe stefan sa il ia si sa il duca de acolo. Aia nu e arta, e gunoi!</description>
+<expiration_date>2018-06-27</expiration_date>
+</petition>
+<petition>
+<category>Other</category>
+<votes>0</votes>
+<target>10000</target>
+<id>4</id>
+<title>Grabiti lucrarile la pasarela</title>
+<description>Terminati mai repede pasarela aia! Nu am pe unde merge la facultate! Tre sa ocolesc!</description>
+<expiration_date>2018-07-31</expiration_date>
+</petition>
+<petition>
+<category>Societate</category>
+<votes>0</votes>
+<target>100</target>
+<id>3</id>
+<title>Societate</title>
+<description>Semnati pentru a imi da si mie un exemplu de petitie pentru categoria societate!</description>
+<expiration_date>2019-05-20</expiration_date>
+</petition>
+<petition>
+<category>ESports</category>
+<votes>1</votes>
+<target>200</target>
+<id>1</id>
+<title>assault</title>
+<description>aduceti assault inapoi</description>
+<expiration_date>2020-01-24</expiration_date>
+</petition>
+
+</feed>

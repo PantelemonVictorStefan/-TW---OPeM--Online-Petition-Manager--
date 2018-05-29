@@ -172,5 +172,24 @@ public class Database {
 		return -1;
 	}
 	
+	public static boolean loginAdmin(String name,String password)
+	{
+		isConnection();
+		Statement stmt;
+		try {
+			stmt = connection.createStatement();
+		
+	        ResultSet rs=stmt.executeQuery("select nvl(count(*),0) from admins where nume="+name.hashCode()+" and parola="+password.hashCode());
+	        if(rs.next())
+	        	if(rs.getInt(1)==1)
+	        		return true;
+	        	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	
 }

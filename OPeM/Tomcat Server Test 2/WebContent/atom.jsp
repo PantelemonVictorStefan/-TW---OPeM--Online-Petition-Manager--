@@ -12,8 +12,8 @@ for(int i=0;i<p.size();i++)
 {
 	out.println("<petition>");
 	out.println("<category>"+p.get(i).category +"</category>");
-	out.println("<votes>"+p.get(i).votes+"/votes>");
-	out.println("<target>"+p.get(i).target+ "/target>");
+	out.println("<votes>"+p.get(i).votes+"</votes>");
+	out.println("<target>"+p.get(i).target+ "</target>");
 	out.println("<id>"+p.get(i).id+"</id>");
 	out.println("<title>"+p.get(i).title +"</title>");
 	out.println("<description>"+p.get(i).description +"</description>");

@@ -2,6 +2,10 @@ create table petitii(id int not null primary key,category varchar2(20),title var
 /
 create table semnaturi(id int not null primary key,id_petitie not null,email varchar2(50),confirmed number(1),code number(4),CONSTRAINT fk_semnaturi_id_petitie FOREIGN KEY (id_petitie) REFERENCES petitii(id));
 /
+create table admins(id int,nume int,parola int);
+/
+insert into admins values(1,-1732826265,984037689);
+/
 set serveroutput on;
 create or replace procedure add_petitie(p_cat in varchar2,title in varchar2,description in varchar2,target in int,tags in varchar2,p_name in varchar2, email in varchar2,expires_at in varchar2,p_id out int)
 as
