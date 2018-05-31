@@ -129,7 +129,7 @@
         
         %>
         <br><br>
-        <a href="atom.jsp">Atom</a>
+        <a href="flux.xml">Atom</a>
     </div>
 
 <div>

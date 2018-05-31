@@ -14,6 +14,7 @@ public class Petition {
 	public String tags2;
 	public String name;
 	public String email;
+	public String creDate;
 	public String expDate;
 	
 	public Petition(String cat,String titl,String desc, long trg,long v,String tgs,String nm,String eml,String expiration)
@@ -29,7 +30,7 @@ public class Petition {
 		expDate=expiration.substring(0,10);
 	}
 	
-	public Petition(long id,String cat,String titl,String desc, long trg,long v,String tgs,String nm,String eml,String expiration)
+	public Petition(long id,String cat,String titl,String desc, long trg,long v,String tgs,String nm,String eml,String creation, String expiration)
 	{
 		this.id=id;
 		category=cat;
@@ -40,6 +41,7 @@ public class Petition {
 		name=nm;
 		email=eml;
 		tags2=tgs;
+		creDate=creation;
 		expDate=expiration.substring(0,10);
 	}
 	

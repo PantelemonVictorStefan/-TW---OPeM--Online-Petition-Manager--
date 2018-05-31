@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<id>http://79.112.42.126:8081/Tomcat_Server_Test_2/flux.xml</id>
+<title>Flux Atom</title>
+<updated>2018-2-5T10:12:13Z</updated>
+ <link rel="self" type="application/atom+xml" href="http://79.112.42.126:8081/Tomcat_Server_Test_2/flux.xml" />
+<author>
+<name>depunepetitie</name>
+</author>
+<entry>
+<title>Nu mai vrem talhari!</title>
+<link href="http://79.112.42.126:8081/Tomcat_Server_Test_2/petitie.jsp?index=2"/>
+<id>http://79.112.42.126:8081/Tomcat_Server_Test_2/petitie.jsp?index=2</id>
+<updated>2018-05-20T03:14:35Z</updated>
+<summary>Scoteti-o din platou ca o calc in picioare!</summary>
+</entry>
+
+
+<entry>
+<title>Curatati gunoiul de pe Stefan</title>
+<link href="http://79.112.42.126:8081/Tomcat_Server_Test_2/petitie.jsp?index=5"/>
+<id>http://79.112.42.126:8081/Tomcat_Server_Test_2/petitie.jsp?index=5</id>
+<updated>2018-05-26T18:16:02Z</updated>
+<summary>Ba, cine o adus mormanu ala de fier vechi si lo pus pe stefan sa il ia si sa il duca de acolo. Aia nu e arta, e gunoi!</summary>
+</entry>
+
+
+<entry>
+<title>Dorian Popa, nu mai suport</title>
+<link href="http://79.112.42.126:8081/Tomcat_Server_Test_2/petitie.jsp?index=6"/>
+<id>http://79.112.42.126:8081/Tomcat_Server_Test_2/petitie.jsp?index=6</id>
+<updated>2018-05-31T01:16:39Z</updated>
+<summary>Cineva sa ii stearga canalul de youtube</summary>
+</entry>
+
+
+<entry>
+<title>Grabiti lucrarile la pasarela</title>
+<link href="http://79.112.42.126:8081/Tomcat_Server_Test_2/petitie.jsp?index=4"/>
+<id>http://79.112.42.126:8081/Tomcat_Server_Test_2/petitie.jsp?index=4</id>
+<updated>2018-05-20T17:26:08Z</updated>
+<summary>Terminati mai repede pasarela aia! Nu am pe unde merge la facultate! Tre sa ocolesc!</summary>
+</entry>
+
+
+<entry>
+<title>Societate</title>
+<link href="http://79.112.42.126:8081/Tomcat_Server_Test_2/petitie.jsp?index=3"/>
+<id>http://79.112.42.126:8081/Tomcat_Server_Test_2/petitie.jsp?index=3</id>
+<updated>2018-05-20T15:48:50Z</updated>
+<summary>Semnati pentru a imi da si mie un exemplu de petitie pentru categoria societate!</summary>
+</entry>
+
+
+<entry>
+<title>assault</title>
+<link href="http://79.112.42.126:8081/Tomcat_Server_Test_2/petitie.jsp?index=1"/>
+<id>http://79.112.42.126:8081/Tomcat_Server_Test_2/petitie.jsp?index=1</id>
+<updated>2018-05-20T03:05:15Z</updated>
+<summary>aduceti assault inapoi</summary>
+</entry>
+
+
+</feed>

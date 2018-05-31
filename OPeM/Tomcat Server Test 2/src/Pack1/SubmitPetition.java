@@ -1,6 +1,9 @@
 package Pack1;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.servlet.RequestDispatcher;
@@ -58,7 +61,8 @@ public class SubmitPetition extends HttpServlet {
 			if(validateData(category,title,description,trg,email,exp))
 			{
 				Petition p=new Petition(category,title,description,trg,0,tags,name,email,exp);
-				long id=Database.add(p);
+				long id=1; //Database.add(p);
+				updateXML();
 				doPost(request,response,id);
 			}
 			
@@ -101,6 +105,43 @@ public class SubmitPetition extends HttpServlet {
 							if(Integer.parseInt(expiration.substring(8,10))<Calendar.DAY_OF_MONTH)	
 								return false;
 		return true;
+	}
+	
+	void updateXML()
+	{
+		try {
+			ArrayList<Petition> petitions=Database.get();
+			PrintWriter out= new PrintWriter("C:\\Users\\MasterCode\\eclipse-workspace3\\Tomcat Server Test 2\\WebContent\\flux.xml");
+			out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
+			out.println("<feed xmlns=\"http://www.w3.org/2005/Atom\">");
+			out.println("<id>http://79.112.42.126:8081/Tomcat_Server_Test_2/flux.xml</id>"); //UPDATE
+			out.println("<title>Flux Atom</title>");
+			out.println("<updated>"+Calendar.getInstance().get(Calendar.YEAR)+"-"+Calendar.MONTH+"-"+Calendar.DAY_OF_MONTH+"T"+Calendar.HOUR+":"+Calendar.MINUTE+":"+Calendar.SECOND+"Z</updated>");
+			//2007-02-25T13:37:36Z
+			out.println(" <link rel=\"self\" type=\"application/atom+xml\" href=\"http://79.112.42.126:8081/Tomcat_Server_Test_2/flux.xml\" />"); //UPDATE
+			out.println("<author>\n<name>depunepetitie</name>\n</author>");
+			for(int i=0;i<petitions.size();i++)
+			{
+				out.println("<entry>");
+				out.println("<title>"+petitions.get(i).title +"</title>");
+				out.println("<link href=\""+"http://79.112.42.126:8081/Tomcat_Server_Test_2/petitie.jsp?index="+petitions.get(i).id+"\"/>"); //UPDATE
+				out.println("<id>"+"http://79.112.42.126:8081/Tomcat_Server_Test_2/petitie.jsp?index="+petitions.get(i).id +"</id>");
+				out.println("<updated>"+petitions.get(i).creDate.substring(0,10)+"T"+petitions.get(i).creDate.substring(11,19)+"Z</updated>");
+				out.println("<summary>"+petitions.get(i).description +"</summary>");
+				out.println("</entry>\n\n");
+				
+			}
+			System.out.println("Fac treaba asta");
+			System.out.println("Working Directory = " +
+		              System.getProperty("user.dir"));
+			out.println("</feed>");
+			out.flush();
+			out.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 

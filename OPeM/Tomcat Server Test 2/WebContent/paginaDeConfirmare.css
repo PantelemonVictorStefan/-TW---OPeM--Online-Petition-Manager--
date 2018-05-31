@@ -1,0 +1,79 @@
+
+body
+{
+	text-align: center;
+	color: #76323F;
+	font-size: 45px;
+}
+p{
+
+}
+input{
+	font-size: 30px;
+	color: #026670;
+
+}
+#mesaj{
+	font-size: 25px ;
+	color: red;
+}
+
+.navbar {
+	margin-left:0px;
+    left: 0px;
+    overflow: hidden;
+    background-color: #026670;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.navbar a {
+
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 27px;
+}
+
+.navbar a:hover {
+
+    background-color: #ddd;
+    color: #76323F;
+}
+
+.navbar a.active {
+
+    background-color: #FCE181;
+    color: white;
+}
+
+.navbar .icon {
+    display: none;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.sticky + .main {
+    padding-top: 60px;
+}
+
+
+.main {
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+.meniu_text {
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 45px;
+
+}

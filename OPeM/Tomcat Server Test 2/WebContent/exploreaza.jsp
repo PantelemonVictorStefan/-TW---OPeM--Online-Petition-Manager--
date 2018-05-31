@@ -27,6 +27,7 @@
     <button class="tablinks" onclick="openCity(event, 'Politica')" id="defaultOpen">Politica</button>
     <button class="tablinks" onclick="openCity(event, 'Sport')">Sport</button>
     <button class="tablinks" onclick="openCity(event, 'Educatie')">Societate</button>
+    <button class="tablinks" onclick="openCity(event, 'Others')">Others</button>
 </div>
 
 <div id="Politica" class="tabcontent">
@@ -70,6 +71,21 @@
     </ul>
 </div>
 
+<div id="Others" class="tabcontent">
+
+    <input type="text" id="myInputOthers" onkeyup="myFunctionOthers()" placeholder="Cauta petitii.." title="Type in a name">
+
+    <ul id="myULOthers">
+        <%
+            ArrayList<Petition> petitiiOthers=Database.getByCategory("Other");
+            if(petitiiOthers!=null)
+                for(int i=0;i<petitiiOthers.size();i++)
+                    out.println("<li><a href=\"petitie.jsp?index="+petitiiOthers.get(i).id+"&mesaj=null\">"+petitiiOthers.get(i).title+"</a></li>");
+        %>
+    </ul>
+
+</div>
+
 <script>
     function myFunctionPolitica() {
         var input, filter, ul, li, a, i;
@@ -110,6 +126,23 @@
         input = document.getElementById("myInputEducatie");
         filter = input.value.toUpperCase();
         ul = document.getElementById("myULEducatie");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+
+            }
+        }
+    }
+    
+    function myFunctionOthers() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInputOthers");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myULOthers");
         li = ul.getElementsByTagName("li");
         for (i = 0; i < li.length; i++) {
             a = li[i].getElementsByTagName("a")[0];
