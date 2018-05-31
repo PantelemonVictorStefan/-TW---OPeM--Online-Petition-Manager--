@@ -61,8 +61,9 @@ public class SubmitPetition extends HttpServlet {
 			if(validateData(category,title,description,trg,email,exp))
 			{
 				Petition p=new Petition(category,title,description,trg,0,tags,name,email,exp);
-				long id=1; //Database.add(p);
-				updateXML();
+				long id=Database.add(p);
+				//System.out.println(request.getServletContext().getRealPath("/"));
+				updateXML(request.getServletContext().getRealPath("/")+"flux.xml");
 				doPost(request,response,id);
 			}
 			
@@ -107,11 +108,11 @@ public class SubmitPetition extends HttpServlet {
 		return true;
 	}
 	
-	void updateXML()
+	void updateXML(String path)
 	{
 		try {
 			ArrayList<Petition> petitions=Database.get();
-			PrintWriter out= new PrintWriter("C:\\Users\\MasterCode\\eclipse-workspace3\\Tomcat Server Test 2\\WebContent\\flux.xml");
+			PrintWriter out= new PrintWriter(path);
 			out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
 			out.println("<feed xmlns=\"http://www.w3.org/2005/Atom\">");
 			out.println("<id>http://79.112.42.126:8081/Tomcat_Server_Test_2/flux.xml</id>"); //UPDATE
@@ -129,11 +130,10 @@ public class SubmitPetition extends HttpServlet {
 				out.println("<updated>"+petitions.get(i).creDate.substring(0,10)+"T"+petitions.get(i).creDate.substring(11,19)+"Z</updated>");
 				out.println("<summary>"+petitions.get(i).description +"</summary>");
 				out.println("</entry>\n\n");
-				
+				 
 			}
-			System.out.println("Fac treaba asta");
-			System.out.println("Working Directory = " +
-		              System.getProperty("user.dir"));
+			//System.out.println("Fac treaba asta");
+			//System.out.println("Working Directory = " +             System.getProperty("user.dir"));
 			out.println("</feed>");
 			out.flush();
 			out.close();
