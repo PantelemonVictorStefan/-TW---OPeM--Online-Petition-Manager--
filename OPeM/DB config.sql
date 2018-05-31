@@ -147,6 +147,6 @@ then
     select id_petitie into v_id_petitie from semnaturi where id=p_id;
     update semnaturi set confirmed=1 where id=p_id;
     update petitii set votes=(select sum(confirmed) from semnaturi where id_petitie = v_id_petitie) where id=v_id_petitie and EXPIRES_AT>sysdate;
-    p_out:=1;
+    p_out:=v_id_petitie;
 end if;
 end semneaza_petitie;

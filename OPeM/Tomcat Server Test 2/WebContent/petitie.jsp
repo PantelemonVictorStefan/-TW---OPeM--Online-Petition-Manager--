@@ -55,6 +55,12 @@
     		mesaj="Ai semnat deja";
     		out.print("<p style=\"text-align: center\">"+mesaj+"</p>");
     	}
+    	else
+    		if(mesaj.equals("congratz"))
+        	{
+        		mesaj="Iti multumim pentru ca te-ai alaturat cauzei noastre!";
+        		out.print("<p style=\"text-align: center\">"+mesaj+"</p>");
+        	}
     
     %>
 </div>

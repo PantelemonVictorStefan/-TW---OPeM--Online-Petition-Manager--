@@ -52,9 +52,15 @@ public class SignPetition extends HttpServlet {
 		{
 		RequestDispatcher myDispatch = request.getRequestDispatcher("petitie.jsp?index="+id+"&mesaj="+next);
 	    myDispatch.forward(request, response);
+	    
 		}
 		else
-			response.getWriter().append("ID cerere:"+next+"\nDe aici face Sami");
+		{
+			//response.getWriter().append("ID cerere:"+next+"\nDe aici face Sami");
+			//Database.submitCode(id,)
+			RequestDispatcher myDispatch = request.getRequestDispatcher("paginaDeConfirmare.jsp?index="+next+"&mesaj=null");
+		    myDispatch.forward(request, response);
+		}
 	}
 
 	boolean validateEmail(String email)

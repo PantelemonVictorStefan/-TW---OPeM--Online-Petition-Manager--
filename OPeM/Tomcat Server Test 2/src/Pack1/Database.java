@@ -68,7 +68,7 @@ public class Database {
 		try {
 			stmt = connection.createStatement();
 		
-	        ResultSet rs=stmt.executeQuery("select * from petitii order by (expires_at-sysdate) asc");
+	        ResultSet rs=stmt.executeQuery("select * from petitii where expires_at>sysdate and rownum<11 order by (expires_at-sysdate) asc");
 	        while(rs.next())
 	        {
 	        	//System.out.println(rs.getInt(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getInt(5)+" "+rs.getInt(6)+" "+rs.getString(7)+" "+rs.getString(8)+" "+rs.getString(9)+" "+rs.getString(11));
@@ -150,7 +150,7 @@ public class Database {
 		return -1;
 	}
 	
-	public static int submitCode(long id,int code)
+	public static long submitCode(long id,int code)
 	{
 		isConnection();
 		

@@ -69,7 +69,7 @@
     //     } else {
     //         navbar.classList.remove("sticky");
     //     }
-    // }
+    // }	
 </script>
 
 
@@ -129,7 +129,7 @@
         
         %>
         <br><br>
-        <a href="flux.xml">Atom</a>
+        <a  id="atom" href="flux.xml">Atom</a>
     </div>
 
 <div>
@@ -143,7 +143,7 @@
 <div class="about_us">
     <h3 id="about_text">About us</h3>
     <p id="about_main">
-    <p id="email_about"> Email: depunepetitie@yahoo.com</p>
+    <p id="email_about"> Email: depunepetitie@gmail.com</p>
     <p id="autori">Autori:<br> Pantelimon Victor & Bocicu Samuel<br>Copyright 2018</p>
 
 
@@ -169,7 +169,7 @@
 
             <div class="container" style="background-color:#f1f1f1">
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
+                
             </div>
         </form>
     </div>
