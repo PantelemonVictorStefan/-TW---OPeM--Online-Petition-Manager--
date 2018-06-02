@@ -52,7 +52,8 @@
         <input id=Buton  type="submit" value="Semnez!">
         <!--onclick="window.location.href='/page2'"-->
     </form>
-    <% 
+    <%
+    try{
     String mesaj=request.getParameter("mesaj");
     if(mesaj.equals("-1"))
     {
@@ -71,6 +72,11 @@
         		mesaj="Iti multumim pentru ca te-ai alaturat cauzei noastre!";
         		out.print("<p style=\"text-align: center\">"+mesaj+"</p>");
         	}
+    }
+    catch(NullPointerException e)
+    {
+    	
+    }
     
     %>
 </div>

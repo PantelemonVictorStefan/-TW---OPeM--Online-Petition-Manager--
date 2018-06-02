@@ -43,6 +43,7 @@ public class Petition {
 		tags2=tgs;
 		creDate=creation;
 		expDate=expiration.substring(0,10);
+		bucatalesteTaguri(tgs);
 	}
 	
 	public void getTags()
@@ -51,18 +52,19 @@ public class Petition {
 			System.out.println(tags.get(i));
 	}
 	
-	public void bucatalesteTaguri(String tags)
+	public void bucatalesteTaguri(String tgs)
 	{
-		while(tags!=null)
+		tags=new ArrayList<String>();
+		while(tgs!=null)
 		{
-			ArrayList<String> tags2=new ArrayList<String>();
+			
 			String tag;
-			tag=extractWord(tags);
-			tags2.add(tag);
-			if(tags.equalsIgnoreCase((skipWhiteSpaces(tags.substring(tag.length())))))
-				tags=null;
+			tag=extractWord(tgs);
+			tags.add(tag);
+			if(tgs.equalsIgnoreCase((skipWhiteSpaces(tgs.substring(tag.length())))))
+				tgs=null;
 			else
-				tags=skipWhiteSpaces(tags.substring(tag.length()));
+				tgs=skipWhiteSpaces(tgs.substring(tag.length()));
 			
 		}
 	}

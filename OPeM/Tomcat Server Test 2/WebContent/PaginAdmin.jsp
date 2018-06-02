@@ -29,7 +29,7 @@ catch(NullPointerException e)
 </div>
 <br><br>
 <br><br>
-<form>
+<form action="generatedHtml.jsp">
 
     <p>Generare raport HTML: <input id=raport_html type="submit" value="Raport HTML"></p>
 </form>

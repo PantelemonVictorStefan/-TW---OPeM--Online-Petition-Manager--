@@ -1,0 +1,10 @@
+ body, html{ height:100%; width:100%; margin:0px; padding:0px; overflow:auto;}
+ body{ font-family:Verdana, Geneva, Arial, Helvetica, sans-serif; font-size:12px; }
+ th{ background:#ddd; }
+ tr:nth-child(even){ background:#f5f5f5; }
+ th, td{ text-align:center; border:1px solid #bbb; }
+ table{ border-collapse:collapse; margin:5px; width: calc(100% - 10px); }
+ table.tablesorter thead tr th, table.tablesorter tfoot tr th { padding:5px 19px 5px 10px; }
+ #thumb{position:absolute;border:1px solid #ccc;background:#333;padding:5px;display:none;color:#fff;}
+ .fancybox-margin{margin-right:0px;}
+ h2{text-align: center;}

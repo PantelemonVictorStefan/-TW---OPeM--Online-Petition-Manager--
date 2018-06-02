@@ -85,6 +85,30 @@ public class Database {
 		//return null;
 	}
 	
+	public static ArrayList<Petition> getAll()
+	{
+		ArrayList<Petition> petitions=new ArrayList<Petition>();
+		isConnection();
+		Statement stmt;
+		try {
+			stmt = connection.createStatement();
+		
+	        ResultSet rs=stmt.executeQuery("select * from petitii  order by (expires_at-sysdate) asc");
+	        while(rs.next())
+	        {
+	        	//System.out.println(rs.getInt(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getInt(5)+" "+rs.getInt(6)+" "+rs.getString(7)+" "+rs.getString(8)+" "+rs.getString(9)+" "+rs.getString(11));
+	        	petitions.add(new Petition(rs.getLong(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getLong(5),rs.getLong(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11)));
+	        }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return petitions;
+		//for(int i=0;i<petitions.size();i++)
+			//System.out.println(petitions.get(i).description);
+		//return null;
+	}
+	
 	public static Petition getPetitionById(long id)
 	{
 		Petition p=null;
