@@ -60,6 +60,7 @@ public class SubmitCode extends HttpServlet {
 		//System.out.println(request.getParameter("search")+"\n"+request.getParameter("id"));
 		Database.signPetition(Long.parseLong(request.getParameter("id")), request.getParameter("search"));
 		
+		
 	}
 
 }

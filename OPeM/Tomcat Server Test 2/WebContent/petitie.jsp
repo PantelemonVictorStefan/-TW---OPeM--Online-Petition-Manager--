@@ -11,6 +11,16 @@
     <link rel="stylesheet" type="text/css" href="prezentarePetitie.css">
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
 <div class="navbar" id="myNavbar">
     <a href="index.jsp" style="margin-left: 20%">Acasa</a>
     <a href="exploreaza.jsp">Exploreaza</a>
@@ -64,5 +74,7 @@
     
     %>
 </div>
+<div class="fb-share-button" data-href="http://localhost:8081/Tomcat_Server_Test_2/petitie.jsp?index=<%out.print(p.id);%>&amp;mesaj=null" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8081%2FTomcat_Server_Test_2%2Fpetitie.jsp%3Findex%3D7%26mesaj%3Dnull&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+
 </body>
 </html>

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class Database {
    
     private static Connection connection = null;
+    public static String SID="0";
 	
 	
 	
