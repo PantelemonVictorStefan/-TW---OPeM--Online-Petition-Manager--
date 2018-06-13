@@ -34,7 +34,7 @@ catch(NullPointerException e)
     <p>Generare raport HTML: <input id=raport_html type="submit" value="Raport HTML"></p>
 </form>
 <br><br>
-<form>
+<form action="generatePdf">
     <p>Generare raport PDF: <input id=raport_pdf type="submit" value="Raport PDF"></p>
 </form>
 
